@@ -1,6 +1,6 @@
 const header = document.querySelector(".site-header");
 const revealItems = document.querySelectorAll(
-  ".section-heading, .feature-card, .use-case-card, .step-card, .comparison-table-wrapper, .problem-panel, .trust-panel, .final-cta-card, .hero-copy, .hero-panel"
+  ".section-heading, .feature-card, .use-case-card, .step-card, .comparison-table-wrapper, .problem-panel, .trust-panel, .final-cta-card, .hero-copy, .hero-panel, .demo-hero-copy, .demo-stage-card"
 );
 
 revealItems.forEach((item) => {

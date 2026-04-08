@@ -60,7 +60,7 @@
                   rel="noreferrer"
                   >Book a Demo</a
                 >
-                <a class="button button-secondary" href="#sample-workflow">See Sample Workflow</a>
+                <a class="button button-secondary" href="demo/">See Sample Workflow</a>
               </div>
               <div class="hero-meta">
                 <span>Faster onboarding</span>
@@ -70,19 +70,103 @@
             </div>
 
             <div class="hero-panel" aria-label="Product preview">
-              <div class="hero-shot-frame">
+              <div class="hero-product-frame">
                 <div class="hero-shot-badge">Interactive workflow simulation</div>
-                <img
-                  class="hero-shot"
-                  src="assets/veeva-workflow-simulator-mock.png"
-                  alt="Veeva workflow simulator call logging screen shown inside a laptop mockup"
-                />
+                <div class="veeva-ui veeva-ui-compact">
+                  <div class="veeva-shell">
+                    <div class="veeva-topbar">
+                      <div class="veeva-brand">Veeva</div>
+                      <div class="veeva-nav">
+                        <span>Home</span>
+                        <span>Accounts</span>
+                        <span class="active">Calls</span>
+                        <span>Calendar</span>
+                      </div>
+                      <div class="veeva-user">Welcome, Julia</div>
+                    </div>
+
+                    <div class="veeva-body">
+                      <div class="veeva-main">
+                        <div class="veeva-workflow-head">
+                          <div>
+                            <h3>Log a Call</h3>
+                            <p>Step 2 of 5</p>
+                          </div>
+                          <div class="veeva-stepbar" aria-hidden="true">
+                            <span class="active"></span>
+                            <span class="active"></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                          </div>
+                        </div>
+
+                        <div class="veeva-form-card">
+                          <h4>Enter Call Details</h4>
+                          <div class="veeva-form-grid">
+                            <div class="veeva-field">
+                              <label>Account</label>
+                              <div>Springfield Health Clinic</div>
+                            </div>
+                            <div class="veeva-field">
+                              <label>Call Date</label>
+                              <div>Aug 15, 2024</div>
+                            </div>
+                            <div class="veeva-field">
+                              <label>Call Time</label>
+                              <div>3:00 PM</div>
+                            </div>
+                            <div class="veeva-field">
+                              <label>Call Type</label>
+                              <div>In-Person</div>
+                            </div>
+                            <div class="veeva-field veeva-field-wide">
+                              <label>Attendees</label>
+                              <div>Dr. Michael Harris</div>
+                            </div>
+                          </div>
+                          <div class="veeva-objectives">
+                            <span class="veeva-chip active">Discuss Product X</span>
+                            <span class="veeva-chip">Leave Samples</span>
+                            <span class="veeva-chip">Share Study Data</span>
+                          </div>
+                          <div class="veeva-form-actions">
+                            <span class="veeva-tag">Objectives ready</span>
+                            <button class="veeva-next-button" type="button">Next</button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <aside class="veeva-sidebar">
+                        <div class="veeva-side-card">
+                          <h4>Complete the call details</h4>
+                          <ul>
+                            <li>Fill out required fields to log a meeting.</li>
+                            <li>Use the guided flow to stay compliant.</li>
+                          </ul>
+                          <p class="veeva-alert">Complete all required fields</p>
+                        </div>
+
+                        <div class="veeva-side-card">
+                          <h4>Today's progress</h4>
+                          <div class="veeva-progress-ring">
+                            <div class="veeva-ring"><span>80%</span></div>
+                            <div class="veeva-progress-copy">
+                              <strong>2 / 5 steps</strong>
+                              <p>Completion is tracked for every simulation.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </aside>
+                    </div>
+                  </div>
+                </div>
                 <div class="hero-shot-caption">
                   <div>
                     <span>Sample workflow</span>
                     <strong>Call logging with guided completion steps</strong>
                   </div>
-                  <span class="status-badge">Ready for demos</span>
+                  <span class="status-badge">Live coded demo</span>
                 </div>
               </div>
             </div>
@@ -295,7 +379,7 @@
                 rel="noreferrer"
                 >Book Demo</a
               >
-              <a class="button button-secondary" href="#sample-workflow">Try Sample</a>
+              <a class="button button-secondary" href="demo/">Try Sample</a>
             </div>
           </div>
         </section>
