@@ -370,6 +370,16 @@ p {
     linear-gradient(180deg, #f9f7f4 0%, #f5f1eb 100%);
 }
 
+.demo-animated-ui::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.18) 45%, transparent 70%);
+  transform: translateX(-120%);
+  animation: demo-shimmer 5s ease-in-out infinite;
+}
+
 .veeva-shell {
   min-height: 100%;
 }
@@ -559,6 +569,11 @@ p {
   cursor: pointer;
 }
 
+.veeva-next-button:disabled {
+  opacity: 0.88;
+  cursor: default;
+}
+
 .veeva-sidebar {
   display: grid;
   gap: 0.9rem;
@@ -733,6 +748,27 @@ p {
   box-shadow: var(--shadow-lg);
 }
 
+.demo-panel-swap,
+[data-demo-title],
+[data-demo-step-label],
+[data-demo-progress-strong],
+[data-demo-progress-copy],
+[data-demo-guidance-copy] {
+  transition:
+    opacity 240ms ease,
+    transform 240ms ease;
+}
+
+.demo-is-transitioning .demo-panel-swap,
+.demo-is-transitioning [data-demo-title],
+.demo-is-transitioning [data-demo-step-label],
+.demo-is-transitioning [data-demo-progress-strong],
+.demo-is-transitioning [data-demo-progress-copy],
+.demo-is-transitioning [data-demo-guidance-copy] {
+  opacity: 0.68;
+  transform: translateY(4px);
+}
+
 .demo-stage-header {
   display: flex;
   flex-direction: column;
@@ -767,6 +803,18 @@ p {
 .demo-kpis strong {
   color: var(--text);
   font-size: 1rem;
+}
+
+@keyframes demo-shimmer {
+  0%,
+  72%,
+  100% {
+    transform: translateX(-120%);
+  }
+
+  82% {
+    transform: translateX(120%);
+  }
 }
 
 .hero-shot-caption {

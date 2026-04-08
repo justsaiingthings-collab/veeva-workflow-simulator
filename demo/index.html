@@ -64,16 +64,16 @@
                 <div class="demo-kpis">
                   <div>
                     <span>Completion</span>
-                    <strong>80%</strong>
+                    <strong data-demo-kpi-completion>20%</strong>
                   </div>
                   <div>
-                    <span>Scenario</span>
-                    <strong>Rep Training</strong>
+                    <span>Current mode</span>
+                    <strong data-demo-kpi-mode>Account Selection</strong>
                   </div>
                 </div>
               </div>
 
-              <div class="veeva-ui veeva-ui-full">
+              <div class="veeva-ui veeva-ui-full demo-animated-ui" data-demo-workflow>
                 <div class="veeva-shell">
                   <div class="veeva-topbar">
                     <div class="veeva-brand">Veeva</div>
@@ -92,74 +92,66 @@
                     <div class="veeva-main">
                       <div class="veeva-workflow-head">
                         <div>
-                          <h3>Log a Call</h3>
-                          <p>Step 2 of 5</p>
+                          <h3 data-demo-title>Choose an Account</h3>
+                          <p data-demo-step-label>Step 1 of 5</p>
                         </div>
-                        <div class="veeva-stepbar" aria-hidden="true">
+                        <div class="veeva-stepbar" aria-hidden="true" data-demo-stepbar>
                           <span class="active"></span>
-                          <span class="active"></span>
+                          <span></span>
                           <span></span>
                           <span></span>
                           <span></span>
                         </div>
                       </div>
 
-                      <div class="veeva-form-card">
-                        <h4>Enter Call Details</h4>
-                        <div class="veeva-form-grid">
+                      <div class="veeva-form-card demo-panel-swap" data-demo-panel>
+                        <h4 data-demo-card-title>Select the right account</h4>
+                        <div class="veeva-form-grid" data-demo-fields>
                           <div class="veeva-field">
-                            <label>Account</label>
-                            <div>Springfield Health Clinic</div>
+                            <label>Territory</label>
+                            <div>Midwest Cardio North</div>
                           </div>
                           <div class="veeva-field">
-                            <label>Call Date</label>
-                            <div>Aug 15, 2024</div>
-                          </div>
-                          <div class="veeva-field">
-                            <label>Call Time</label>
-                            <div>3:00 PM</div>
-                          </div>
-                          <div class="veeva-field">
-                            <label>Call Type</label>
-                            <div>In-Person</div>
+                            <label>Priority</label>
+                            <div>Tier 1 target</div>
                           </div>
                           <div class="veeva-field veeva-field-wide">
-                            <label>Attendees</label>
-                            <div>Dr. Michael Harris</div>
+                            <label>Suggested account</label>
+                            <div>Springfield Health Clinic</div>
                           </div>
                         </div>
 
-                        <div class="veeva-objectives">
-                          <span class="veeva-chip active">Discuss Product X</span>
-                          <span class="veeva-chip">Leave Samples</span>
-                          <span class="veeva-chip">Share Study Data</span>
+                        <div class="veeva-objectives" data-demo-objectives>
+                          <span class="veeva-chip active">Open account</span>
+                          <span class="veeva-chip">Review history</span>
+                          <span class="veeva-chip">Confirm target</span>
                         </div>
 
                         <div class="veeva-form-actions">
-                          <span class="veeva-tag">Objectives selected</span>
-                          <button class="veeva-next-button" type="button">Next</button>
+                          <span class="veeva-tag" data-demo-tag>Account selected</span>
+                          <button class="veeva-next-button" type="button" disabled>Autoplaying</button>
                         </div>
                       </div>
 
                       <div class="veeva-bottom-panels">
-                        <div class="veeva-summary-card">
-                          <h4>Objectives</h4>
-                          <div class="veeva-chip-row">
-                            <span class="veeva-chip active">Discuss Product X</span>
-                            <span class="veeva-chip">Leave Samples</span>
-                            <span class="veeva-chip">Share Study Data</span>
+                        <div class="veeva-summary-card demo-panel-swap" data-demo-summary-card>
+                          <h4 data-demo-summary-title>Current focus</h4>
+                          <div class="veeva-chip-row" data-demo-summary-chips>
+                            <span class="veeva-chip active">Open account</span>
+                            <span class="veeva-chip">Review history</span>
+                            <span class="veeva-chip">Confirm target</span>
                           </div>
                         </div>
-                        <div class="veeva-summary-card">
-                          <h4>Performance summary</h4>
-                          <div class="veeva-bars">
+                        <div class="veeva-summary-card demo-panel-swap">
+                          <h4 data-demo-performance-title>Performance summary</h4>
+                          <div class="veeva-bars" data-demo-bars>
                             <div>
-                              <span>Steps completed</span>
-                              <i><b style="width: 80%"></b></i>
+                              <span>Profile confidence</span>
+                              <i><b style="width: 24%"></b></i>
                             </div>
                             <div>
-                              <span>Guidance followed</span>
-                              <i><b style="width: 92%"></b></i>
+                              <span>Workflow progress</span>
+                              <i><b style="width: 20%"></b></i>
                             </div>
                           </div>
                         </div>
@@ -167,31 +159,32 @@
                     </div>
 
                     <aside class="veeva-sidebar">
-                      <div class="veeva-side-card">
-                        <h4>Complete the call details</h4>
-                        <ul>
-                          <li>Fill out required fields to log a meeting with the clinic.</li>
-                          <li>Click next only after all required data is entered.</li>
+                      <div class="veeva-side-card demo-panel-swap">
+                        <h4 data-demo-side-title>Choose the right account</h4>
+                        <ul data-demo-side-list>
+                          <li>Review account context before entering the workflow.</li>
+                          <li>Confirm the right clinic and target profile.</li>
                         </ul>
-                        <p class="veeva-alert">Complete all required fields</p>
+                        <p class="veeva-alert" data-demo-alert>Ready to begin</p>
                       </div>
 
-                      <div class="veeva-side-card">
-                        <h4>Today's progress</h4>
+                      <div class="veeva-side-card demo-panel-swap">
+                        <h4 data-demo-progress-title>Today's progress</h4>
                         <div class="veeva-progress-ring">
-                          <div class="veeva-ring"><span>80%</span></div>
+                          <div class="veeva-ring" data-demo-ring><span data-demo-ring-value>20%</span></div>
                           <div class="veeva-progress-copy">
-                            <strong>2 / 5 steps completed</strong>
-                            <p>Progress updates live as learners move through each task.</p>
+                            <strong data-demo-progress-strong>1 / 5 steps completed</strong>
+                            <p data-demo-progress-copy>
+                              Progress updates live as learners move through each task.
+                            </p>
                           </div>
                         </div>
                       </div>
 
-                      <div class="veeva-side-card">
-                        <h4>Guided prompt</h4>
-                        <p>
-                          Confirm the right clinic, choose the approved call type, and
-                          make sure the objective matches the discussion plan.
+                      <div class="veeva-side-card demo-panel-swap">
+                        <h4 data-demo-guidance-title>Guided prompt</h4>
+                        <p data-demo-guidance-copy>
+                          Confirm the right clinic before moving forward.
                         </p>
                       </div>
                     </aside>
