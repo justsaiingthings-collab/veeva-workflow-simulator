@@ -50,6 +50,8 @@ interestForms.forEach((form) => {
 });
 
 if (demoWorkflow) {
+  const STEP_TRANSITION_MS = 90;
+  const STEP_DISPLAY_MS = 1850;
   const demoStepLabel = demoWorkflow.querySelector("[data-demo-step-label]");
   const demoTitle = demoWorkflow.querySelector("[data-demo-title]");
   const demoCardTitle = demoWorkflow.querySelector("[data-demo-card-title]");
@@ -106,6 +108,14 @@ if (demoWorkflow) {
         `
       )
       .join("");
+
+  const setText = (node, value) => {
+    if (node) node.textContent = value;
+  };
+
+  const setHtml = (node, value) => {
+    if (node) node.innerHTML = value;
+  };
 
   const steps = [
     {
@@ -318,6 +328,7 @@ if (demoWorkflow) {
   ];
 
   let currentStepIndex = 0;
+  let demoLoopHandle;
 
   const renderStep = (stepIndex) => {
     const step = steps[stepIndex];
@@ -325,49 +336,59 @@ if (demoWorkflow) {
     demoWorkflow.classList.add("demo-is-transitioning");
 
     window.setTimeout(() => {
-      if (demoTitle) demoTitle.textContent = step.title;
-      if (demoStepLabel) demoStepLabel.textContent = step.stepLabel;
-      if (demoCardTitle) demoCardTitle.textContent = step.cardTitle;
-      if (demoFields) demoFields.innerHTML = createFieldMarkup(step.fields);
-      if (demoObjectives) demoObjectives.innerHTML = createChipMarkup(step.objectives);
-      if (demoTag) demoTag.textContent = step.tag;
-      if (demoSummaryTitle) demoSummaryTitle.textContent = step.summaryTitle;
-      if (demoSummaryChips) demoSummaryChips.innerHTML = createChipMarkup(step.summaryChips);
-      if (demoPerformanceTitle) demoPerformanceTitle.textContent = step.performanceTitle;
-      if (demoBars) demoBars.innerHTML = createBarMarkup(step.bars);
-      if (demoSideTitle) demoSideTitle.textContent = step.sideTitle;
-      if (demoSideList) demoSideList.innerHTML = createListMarkup(step.sideList);
-      if (demoAlert) demoAlert.textContent = step.alert;
-      if (demoProgressTitle) demoProgressTitle.textContent = step.progressTitle;
-      if (demoRingValue) demoRingValue.textContent = step.ringValue;
-      if (demoProgressStrong) demoProgressStrong.textContent = step.progressStrong;
-      if (demoProgressCopy) demoProgressCopy.textContent = step.progressCopy;
-      if (demoGuidanceTitle) demoGuidanceTitle.textContent = step.guidanceTitle;
-      if (demoGuidanceCopy) demoGuidanceCopy.textContent = step.guidanceCopy;
-      if (demoKpiCompletion) demoKpiCompletion.textContent = step.ringValue;
-      if (demoKpiMode) demoKpiMode.textContent = step.mode;
+      try {
+        setText(demoTitle, step.title);
+        setText(demoStepLabel, step.stepLabel);
+        setText(demoCardTitle, step.cardTitle);
+        setHtml(demoFields, createFieldMarkup(step.fields));
+        setHtml(demoObjectives, createChipMarkup(step.objectives));
+        setText(demoTag, step.tag);
+        setText(demoSummaryTitle, step.summaryTitle);
+        setHtml(demoSummaryChips, createChipMarkup(step.summaryChips));
+        setText(demoPerformanceTitle, step.performanceTitle);
+        setHtml(demoBars, createBarMarkup(step.bars));
+        setText(demoSideTitle, step.sideTitle);
+        setHtml(demoSideList, createListMarkup(step.sideList));
+        setText(demoAlert, step.alert);
+        setText(demoProgressTitle, step.progressTitle);
+        setText(demoRingValue, step.ringValue);
+        setText(demoProgressStrong, step.progressStrong);
+        setText(demoProgressCopy, step.progressCopy);
+        setText(demoGuidanceTitle, step.guidanceTitle);
+        setText(demoGuidanceCopy, step.guidanceCopy);
+        setText(demoKpiCompletion, step.ringValue);
+        setText(demoKpiMode, step.mode);
 
-      if (demoRing) {
-        demoRing.style.background = `conic-gradient(#72c5bc 0 ${Math.max(
-          step.ringProgress - 12,
-          0
-        )}%, #e7c975 ${Math.max(step.ringProgress - 12, 0)}% ${step.ringProgress}%, rgba(114, 197, 188, 0.18) ${step.ringProgress}% 100%)`;
+        if (demoRing) {
+          demoRing.style.background = `conic-gradient(#72c5bc 0 ${Math.max(
+            step.ringProgress - 12,
+            0
+          )}%, #e7c975 ${Math.max(step.ringProgress - 12, 0)}% ${step.ringProgress}%, rgba(114, 197, 188, 0.18) ${step.ringProgress}% 100%)`;
+        }
+
+        if (demoStepbar) {
+          [...demoStepbar.children].forEach((bar, index) => {
+            bar.classList.toggle("active", index <= stepIndex);
+          });
+        }
+      } finally {
+        demoWorkflow.classList.remove("demo-is-transitioning");
       }
+    }, STEP_TRANSITION_MS);
+  };
 
-      if (demoStepbar) {
-        [...demoStepbar.children].forEach((bar, index) => {
-          bar.classList.toggle("active", index <= stepIndex);
-        });
-      }
-
-      demoWorkflow.classList.remove("demo-is-transitioning");
-    }, 180);
+  const queueNextStep = () => {
+    demoLoopHandle = window.setTimeout(() => {
+      currentStepIndex = (currentStepIndex + 1) % steps.length;
+      renderStep(currentStepIndex);
+      queueNextStep();
+    }, STEP_DISPLAY_MS);
   };
 
   renderStep(currentStepIndex);
+  queueNextStep();
 
-  window.setInterval(() => {
-    currentStepIndex = (currentStepIndex + 1) % steps.length;
-    renderStep(currentStepIndex);
-  }, 2600);
+  window.addEventListener("beforeunload", () => {
+    if (demoLoopHandle) window.clearTimeout(demoLoopHandle);
+  });
 }
