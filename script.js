@@ -2,6 +2,7 @@ const header = document.querySelector(".site-header");
 const revealItems = document.querySelectorAll(
   ".section-heading, .feature-card, .use-case-card, .step-card, .comparison-table-wrapper, .problem-panel, .trust-panel, .final-cta-card, .hero-copy, .hero-panel, .demo-hero-copy, .demo-stage-card"
 );
+const interestForms = document.querySelectorAll("[data-interest-form]");
 
 revealItems.forEach((item) => {
   item.setAttribute("data-reveal", "");
@@ -34,3 +35,15 @@ if ("IntersectionObserver" in window) {
 } else {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }
+
+interestForms.forEach((form) => {
+  const successMessage = form.querySelector("[data-form-success]");
+
+  form.addEventListener("submit", () => {
+    window.setTimeout(() => {
+      if (!successMessage) return;
+      successMessage.hidden = false;
+      form.reset();
+    }, 350);
+  });
+});

@@ -32,13 +32,7 @@
             <a href="#how-it-works">How It Works</a>
           </nav>
 
-          <a
-            class="button button-primary button-small"
-            href="https://calendly.com/justsaiingthings/30min"
-            target="_blank"
-            rel="noreferrer"
-            >Book a Demo</a
-          >
+          <a class="button button-primary button-small" href="#waitlist">Join Waitlist</a>
         </div>
       </header>
 
@@ -53,13 +47,7 @@
                 interactive simulations your teams can use on day one.
               </p>
               <div class="hero-actions">
-                <a
-                  class="button button-primary"
-                  href="https://calendly.com/justsaiingthings/30min"
-                  target="_blank"
-                  rel="noreferrer"
-                  >Book a Demo</a
-                >
+                <a class="button button-primary" href="#waitlist">Join Waitlist</a>
                 <a class="button button-secondary" href="demo/">See Sample Workflow</a>
               </div>
               <div class="hero-meta">
@@ -365,25 +353,77 @@
 
         <section class="section final-cta" id="final-cta">
           <div class="container final-cta-card">
-            <p class="eyebrow">Ready to see it</p>
-            <h2>Train your team faster without Veeva sandboxes</h2>
+            <p class="eyebrow">Early access</p>
+            <h2>Join the waitlist or request the workflow you want next</h2>
             <p>
-              Reduce ramp time, improve consistency, and deliver realistic workflow practice
-              without adding operational risk.
+              Tell us what team you are building for and which Veeva workflow matters most.
+              We will use that input to shape the simulator roadmap and early access list.
             </p>
-            <div class="hero-actions">
-              <a
-                class="button button-primary"
-                href="https://calendly.com/justsaiingthings/30min"
-                target="_blank"
-                rel="noreferrer"
-                >Book Demo</a
+            <div class="waitlist-shell" id="waitlist">
+              <div class="waitlist-copy">
+                <div class="waitlist-pill">Backed by your Google Form</div>
+                <h3>Join the list</h3>
+                <p>
+                  Submit interest, share your company, and drop a feature request in one
+                  clean flow.
+                </p>
+                <ul class="waitlist-points">
+                  <li>Join the early access waitlist</li>
+                  <li>Request a workflow or scenario</li>
+                  <li>Capture demand without managing a backend</li>
+                </ul>
+              </div>
+
+              <form
+                class="interest-form"
+                action="https://docs.google.com/forms/d/e/1FAIpQLSf4JlQ4bz-Zm_D7b5p8y3uvOO0XOty7zRn-xyUsVbxX_kiEEw/formResponse"
+                method="POST"
+                target="hidden-form-target"
+                data-interest-form
               >
-              <a class="button button-secondary" href="demo/">Try Sample</a>
+                <div class="form-field">
+                  <label for="waitlist-email">Work Email</label>
+                  <input
+                    id="waitlist-email"
+                    name="entry.1001002476"
+                    type="email"
+                    placeholder="you@company.com"
+                    required
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="waitlist-company">Company</label>
+                  <input
+                    id="waitlist-company"
+                    name="entry.1147113515"
+                    type="text"
+                    placeholder="Acme Pharma"
+                  />
+                </div>
+                <div class="form-field form-field-full">
+                  <label for="waitlist-feature">Feature Request</label>
+                  <textarea
+                    id="waitlist-feature"
+                    name="entry.1854616965"
+                    rows="4"
+                    placeholder="Example: simulate call logging, sample drops, approvals, or custom rep onboarding flows."
+                  ></textarea>
+                </div>
+                <div class="interest-form-actions">
+                  <button class="button button-primary" type="submit">Join Waitlist</button>
+                  <a class="button button-secondary" href="demo/">View Sample Workflow</a>
+                </div>
+                <p class="form-note">Responses are submitted securely to Google Forms.</p>
+                <p class="form-success" data-form-success hidden>
+                  Thanks. You're on the list, and your feature request is captured.
+                </p>
+              </form>
             </div>
           </div>
         </section>
       </main>
+
+      <iframe name="hidden-form-target" class="hidden-frame" title="Hidden form target"></iframe>
 
       <footer class="site-footer">
         <div class="container footer-row">
@@ -392,7 +432,7 @@
             <a href="#top">Home</a>
             <a href="#solution">Product</a>
             <a href="#roi">ROI</a>
-            <a href="#final-cta">Contact</a>
+            <a href="#waitlist">Waitlist</a>
           </div>
         </div>
       </footer>
